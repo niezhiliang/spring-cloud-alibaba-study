@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    active: 9001
+  application:
+    name: provider-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+---
+spring:
+  profiles: 9001
+
+server:
+  port: 9001
+
+---
+spring:
+  profiles: 9002
+
+server:
+  port: 9002

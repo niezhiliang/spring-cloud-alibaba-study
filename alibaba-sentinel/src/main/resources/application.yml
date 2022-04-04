@@ -1,0 +1,42 @@
+server:
+  port: 8401
+
+spring:
+  application:
+    name: sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        # 配置Sentinel dashboard地址
+        dashboard: localhost:8080
+        # 默认8719端口，键入被占用会自动从8719+1，直到找到未被占用的端口
+        port: 8719
+      # 配置Sentinel的持久化
+      datasource:
+        # 标签随便写
+        nacos:
+          nacos:
+            # 地址
+            serverAddr: localhost:8848
+            groupId: DEFAULT_GROUP
+            dataId: alibaba-sentinel.json
+            # 流控规则
+            ruleType: flow
+      web-context-unify: false
+# 开启feign对sentinel的支持
+feign:
+  sentinel:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+logging:
+  level:
+    com.niezhiliang.sentinel.FeignTestService: debug
