@@ -16,15 +16,22 @@ spring:
         port: 8719
       # 配置Sentinel的持久化
       datasource:
-        # 标签随便写
-        nacos:
+        # 流控规则
+        flow:
           nacos:
             # 地址
             serverAddr: localhost:8848
             groupId: DEFAULT_GROUP
-            dataId: alibaba-sentinel.json
+            dataId: sentinel-flow
             # 流控规则
             ruleType: flow
+        # 熔断规则
+        degrade:
+          nacos:
+            serverAddr: localhost:8848
+            groupId: DEFAULT_GROUP
+            dataId: sentinel-degrade
+            ruleType: degrade
       web-context-unify: false
 # 开启feign对sentinel的支持
 feign:
