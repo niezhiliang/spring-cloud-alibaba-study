@@ -1,0 +1,19 @@
+[
+  {
+    "resource": "rt",
+    "grade": 0,
+    "count": 500,
+    "slowRatioThreshold": 0.1,
+    "timeWindow": 5,
+    "minRequestAmount": 5,
+    "statIntervalMs": 10000
+  },
+  {
+    "resource": "exceptionCount",
+    "grade": 2,
+    "count": 1,
+    "timeWindow": 5,
+    "minRequestAmount": 5,
+    "statIntervalMs": 10000
+  }
+]
